@@ -22,7 +22,6 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
 
   body {
@@ -32,7 +31,6 @@
     overflow-x: hidden;
   }
 
-  /* NOISE OVERLAY */
   body::before {
     content: '';
     position: fixed;
@@ -43,7 +41,6 @@
     opacity: 0.4;
   }
 
-  /* SCANLINES */
   body::after {
     content: '';
     position: fixed;
@@ -73,15 +70,9 @@
     font-size: 1rem;
     letter-spacing: 0.08em;
   }
-
   .nav-logo span { color: var(--muted); }
 
-  nav ul {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
-  }
-
+  nav ul { list-style: none; display: flex; gap: 2rem; }
   nav ul a {
     color: var(--muted);
     text-decoration: none;
@@ -91,7 +82,6 @@
     text-transform: uppercase;
     transition: color 0.2s;
   }
-
   nav ul a:hover { color: var(--accent); }
 
   /* HERO */
@@ -137,12 +127,7 @@
     align-items: center;
     gap: 0.8rem;
   }
-
-  .hero-tag::before {
-    content: '';
-    width: 30px; height: 1px;
-    background: var(--accent);
-  }
+  .hero-tag::before { content: ''; width: 30px; height: 1px; background: var(--accent); }
 
   .hero-name {
     font-family: var(--sans);
@@ -153,7 +138,6 @@
     margin-bottom: 0.5rem;
     letter-spacing: -0.02em;
   }
-
   .hero-name .accent { color: var(--accent); }
 
   .hero-title {
@@ -172,11 +156,7 @@
     margin-bottom: 2.5rem;
   }
 
-  .hero-btns {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
 
   .btn {
     padding: 0.75rem 1.8rem;
@@ -190,32 +170,19 @@
     cursor: pointer;
     border: none;
   }
-
-  .btn-primary {
-    background: var(--accent);
-    color: var(--bg);
-    font-weight: 700;
-  }
-
+  .btn-primary { background: var(--accent); color: var(--bg); font-weight: 700; }
   .btn-primary:hover {
     background: #00e6b4;
     box-shadow: 0 0 20px rgba(0,255,200,0.4);
     transform: translateY(-1px);
   }
-
-  .btn-outline {
-    background: transparent;
-    color: var(--accent);
-    border: 1px solid var(--accent);
-  }
-
+  .btn-outline { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
   .btn-outline:hover {
     background: rgba(0,255,200,0.08);
     box-shadow: 0 0 15px rgba(0,255,200,0.2);
     transform: translateY(-1px);
   }
 
-  /* STATUS */
   .status-badge {
     display: inline-flex;
     align-items: center;
@@ -229,25 +196,19 @@
     color: var(--accent);
     margin-bottom: 2rem;
   }
-
   .status-dot {
     width: 7px; height: 7px;
     border-radius: 50%;
     background: var(--accent);
     animation: pulse 2s infinite;
   }
-
   @keyframes pulse {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.3; }
   }
 
   /* SECTIONS */
-  section {
-    padding: 6rem 10vw;
-    position: relative;
-    z-index: 1;
-  }
+  section { padding: 6rem 10vw; position: relative; z-index: 1; }
 
   .section-header {
     display: flex;
@@ -255,50 +216,18 @@
     gap: 1.2rem;
     margin-bottom: 3.5rem;
   }
-
-  .section-num {
-    font-family: var(--mono);
-    font-size: 0.75rem;
-    color: var(--accent);
-    letter-spacing: 0.1em;
-  }
-
-  .section-title {
-    font-size: 2rem;
-    font-weight: 800;
-    color: var(--heading);
-    letter-spacing: -0.02em;
-  }
-
-  .section-line {
-    flex: 1;
-    height: 1px;
-    background: var(--border);
-    max-width: 120px;
-  }
+  .section-num { font-family: var(--mono); font-size: 0.75rem; color: var(--accent); letter-spacing: 0.1em; }
+  .section-title { font-size: 2rem; font-weight: 800; color: var(--heading); letter-spacing: -0.02em; }
+  .section-line { flex: 1; height: 1px; background: var(--border); max-width: 120px; }
 
   /* ABOUT */
   #about { background: var(--bg2); }
 
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: start;
-  }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
 
-  .about-text p {
-    color: var(--text);
-    line-height: 1.85;
-    margin-bottom: 1.2rem;
-    font-size: 0.97rem;
-  }
+  .about-text p { color: var(--text); line-height: 1.85; margin-bottom: 1.2rem; font-size: 0.97rem; }
 
-  .about-info {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-  }
+  .about-info { display: flex; flex-direction: column; gap: 0.8rem; }
 
   .info-row {
     display: flex;
@@ -309,18 +238,13 @@
     padding: 0.6rem 0;
     border-bottom: 1px solid var(--border);
   }
-
   .info-label { color: var(--accent); min-width: 80px; }
   .info-val { color: var(--text); }
   .info-val a { color: var(--accent2); text-decoration: none; }
   .info-val a:hover { text-decoration: underline; }
 
   /* EXPERIENCE */
-  .exp-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
+  .exp-list { display: flex; flex-direction: column; gap: 0; }
 
   .exp-item {
     display: grid;
@@ -330,7 +254,6 @@
     border-bottom: 1px solid var(--border);
     position: relative;
   }
-
   .exp-item::before {
     content: '';
     position: absolute;
@@ -339,7 +262,6 @@
     width: 1px;
     background: var(--border);
   }
-
   .exp-date {
     font-family: var(--mono);
     font-size: 0.75rem;
@@ -349,37 +271,11 @@
     padding-right: 2rem;
     line-height: 1.6;
   }
-
   .exp-content { padding-left: 2rem; }
-
-  .exp-company {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--heading);
-    margin-bottom: 0.3rem;
-  }
-
-  .exp-role {
-    font-family: var(--mono);
-    font-size: 0.8rem;
-    color: var(--accent);
-    margin-bottom: 1rem;
-    letter-spacing: 0.05em;
-  }
-
-  .exp-desc {
-    color: var(--muted);
-    font-size: 0.88rem;
-    line-height: 1.75;
-    margin-bottom: 1rem;
-  }
-
-  .exp-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-
+  .exp-company { font-size: 1.2rem; font-weight: 700; color: var(--heading); margin-bottom: 0.3rem; }
+  .exp-role { font-family: var(--mono); font-size: 0.8rem; color: var(--accent); margin-bottom: 1rem; letter-spacing: 0.05em; }
+  .exp-desc { color: var(--muted); font-size: 0.88rem; line-height: 1.75; margin-bottom: 1rem; }
+  .exp-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
   .tag {
     font-family: var(--mono);
     font-size: 0.7rem;
@@ -411,7 +307,6 @@
     position: relative;
     overflow: hidden;
   }
-
   .project-card::before {
     content: '';
     position: absolute;
@@ -421,34 +316,90 @@
     opacity: 0;
     transition: opacity 0.25s;
   }
-
   .project-card:hover {
     border-color: rgba(0,255,200,0.3);
     transform: translateY(-4px);
     box-shadow: 0 12px 40px rgba(0,0,0,0.4);
   }
-
   .project-card:hover::before { opacity: 1; }
 
-  .project-icon {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
+  /* Featured card — destaque para o projeto principal */
+  .project-card.featured {
+    border-color: rgba(0,255,200,0.25);
+    background: linear-gradient(135deg, #111822 0%, #0d1a12 100%);
+    grid-column: span 2;
+  }
+  .project-card.featured::before { opacity: 0.6; }
+
+  .featured-inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    align-items: start;
   }
 
-  .project-name {
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: var(--heading);
-    margin-bottom: 0.6rem;
+  .featured-badge {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(0,255,200,0.08);
+    border: 1px solid rgba(0,255,200,0.2);
+    border-radius: 3px;
+    padding: 0.2rem 0.6rem;
+    display: inline-block;
+    margin-bottom: 0.8rem;
   }
 
-  .project-desc {
-    font-size: 0.85rem;
-    color: var(--muted);
-    line-height: 1.65;
-    margin-bottom: 1.2rem;
+  .featured-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 1.2rem;
   }
 
+  .featured-tag {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+    background: rgba(0,255,200,0.06);
+    border: 1px solid rgba(0,255,200,0.15);
+    color: var(--accent);
+    letter-spacing: 0.05em;
+  }
+
+  .featured-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    min-width: 160px;
+  }
+
+  .featured-link {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--accent);
+    border: 1px solid rgba(0,255,200,0.2);
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: all 0.2s;
+    background: rgba(0,255,200,0.04);
+  }
+  .featured-link:hover {
+    background: rgba(0,255,200,0.12);
+    border-color: var(--accent);
+    box-shadow: 0 0 12px rgba(0,255,200,0.15);
+  }
+
+  .project-icon { font-size: 1.8rem; margin-bottom: 1rem; }
+  .project-name { font-size: 1.05rem; font-weight: 700; color: var(--heading); margin-bottom: 0.6rem; }
+  .project-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.65; margin-bottom: 1.2rem; }
   .project-link {
     font-family: var(--mono);
     font-size: 0.72rem;
@@ -459,12 +410,7 @@
     align-items: center;
     gap: 0.4rem;
   }
-
-  .project-link::after {
-    content: '→';
-    transition: transform 0.2s;
-  }
-
+  .project-link::after { content: '→'; transition: transform 0.2s; }
   .project-card:hover .project-link::after { transform: translateX(4px); }
 
   /* SKILLS */
@@ -473,14 +419,12 @@
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 1.5rem;
   }
-
   .skill-group {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 8px;
     padding: 1.5rem;
   }
-
   .skill-group-title {
     font-family: var(--mono);
     font-size: 0.72rem;
@@ -491,13 +435,7 @@
     padding-bottom: 0.7rem;
     border-bottom: 1px solid var(--border);
   }
-
-  .skill-items {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-  }
-
+  .skill-items { display: flex; flex-direction: column; gap: 0.6rem; }
   .skill-item {
     display: flex;
     align-items: center;
@@ -505,46 +443,18 @@
     font-size: 0.88rem;
     color: var(--text);
   }
-
-  .skill-item::before {
-    content: '▸';
-    color: var(--accent2);
-    font-size: 0.7rem;
-  }
+  .skill-item::before { content: '▸'; color: var(--accent2); font-size: 0.7rem; }
 
   /* CONTACT */
   #contact { background: var(--bg2); }
 
-  .contact-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: start;
-  }
+  .contact-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
 
-  .contact-text {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--heading);
-    line-height: 1.4;
-    margin-bottom: 1.5rem;
-  }
-
+  .contact-text { font-size: 1.5rem; font-weight: 700; color: var(--heading); line-height: 1.4; margin-bottom: 1.5rem; }
   .contact-text span { color: var(--accent); }
+  .contact-sub { color: var(--muted); font-size: 0.9rem; line-height: 1.7; margin-bottom: 2rem; }
 
-  .contact-sub {
-    color: var(--muted);
-    font-size: 0.9rem;
-    line-height: 1.7;
-    margin-bottom: 2rem;
-  }
-
-  .social-links {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
+  .social-links { display: flex; flex-direction: column; gap: 1rem; }
   .social-link {
     display: flex;
     align-items: center;
@@ -556,13 +466,11 @@
     text-decoration: none;
     transition: all 0.2s;
   }
-
   .social-link:hover {
     border-color: var(--accent);
     background: rgba(0,255,200,0.04);
     transform: translateX(6px);
   }
-
   .social-icon {
     width: 36px; height: 36px;
     border-radius: 6px;
@@ -572,25 +480,10 @@
     font-size: 1rem;
     font-weight: bold;
   }
-
   .social-info { flex: 1; }
-  .social-name {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--heading);
-  }
-  .social-handle {
-    font-family: var(--mono);
-    font-size: 0.75rem;
-    color: var(--muted);
-  }
-
-  .social-arrow {
-    color: var(--muted);
-    font-size: 0.9rem;
-    transition: color 0.2s;
-  }
-
+  .social-name { font-size: 0.85rem; font-weight: 600; color: var(--heading); }
+  .social-handle { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); }
+  .social-arrow { color: var(--muted); font-size: 0.9rem; transition: color 0.2s; }
   .social-link:hover .social-arrow { color: var(--accent); }
 
   /* FOOTER */
@@ -603,13 +496,7 @@
     position: relative;
     z-index: 1;
   }
-
-  .footer-copy {
-    font-family: var(--mono);
-    font-size: 0.72rem;
-    color: var(--muted);
-  }
-
+  .footer-copy { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); }
   .footer-copy span { color: var(--accent); }
 
   /* FADE IN */
@@ -618,13 +505,14 @@
     transform: translateY(20px);
     transition: opacity 0.6s ease, transform 0.6s ease;
   }
-
-  .fade-in.visible {
-    opacity: 1;
-    transform: none;
-  }
+  .fade-in.visible { opacity: 1; transform: none; }
 
   /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .project-card.featured { grid-column: span 1; }
+    .featured-inner { grid-template-columns: 1fr; }
+    .featured-links { flex-direction: row; }
+  }
   @media (max-width: 768px) {
     nav { padding: 1rem 1.5rem; }
     nav ul { gap: 1rem; }
@@ -690,10 +578,10 @@
         Olá! Sou Bruno Neemias, estudante de Segurança da Informação, atualmente buscando minha primeira oportunidade de estágio na área. Tenho uma trajetória técnica sólida como Eletricista de Manutenção Eletroeletrônica, onde desenvolvi habilidades práticas com sistemas microprocessados, redes e análise de dados em ambientes críticos.
       </p>
       <p>
-        Essa experiência me deu uma visão privilegiada sobre infraestrutura e sistemas em produção — base essencial para atuar em cibersegurança. Tenho me dedicado ao estudo de fundamentos de segurança ofensiva e defensiva, além de laboratórios práticos com ferramentas como Kali Linux, Wazuh SIEM e ambientes de Active Directory.
+        Essa experiência me deu uma visão privilegiada sobre infraestrutura e sistemas em produção — base essencial para atuar em cibersegurança. Tenho me dedicado ao estudo de fundamentos de segurança ofensiva e defensiva, além de laboratórios práticos com ferramentas como Kali Linux, Wazuh SIEM, Suricata e ambientes de Active Directory.
       </p>
       <p>
-        Meu objetivo é crescer na área de segurança da informação, contribuindo com ambientes reais e continuando a desenvolver minhas habilidades técnicas.
+        Meu objetivo é crescer na área de segurança da informação, contribuindo com ambientes reais e continuando a desenvolver minhas habilidades técnicas em SOC, NDR, XDR e IA aplicada à segurança.
       </p>
     </div>
     <div class="about-info fade-in">
@@ -761,30 +649,87 @@
     <div class="section-line"></div>
   </div>
   <div class="projects-grid">
-    <a href="https://github.com/brunoneemias" target="_blank" class="project-card fade-in">
-      <div class="project-icon">🛡️</div>
-      <div class="project-name">Laboratório de Segurança</div>
-      <div class="project-desc">Estudos práticos em ambiente virtualizado com Kali Linux, simulações de ataques e análise de vulnerabilidades. Documentação de técnicas ofensivas e defensivas.</div>
+
+    <!-- FEATURED: Wazuh AI SOC Lab -->
+    <div class="project-card featured fade-in">
+      <div class="featured-inner">
+        <div>
+          <div class="featured-badge">★ Projeto destaque</div>
+          <div class="project-icon">🛡️</div>
+          <div class="project-name" style="font-size: 1.25rem;">Wazuh AI SOC Lab</div>
+          <div class="project-desc" style="font-size: 0.9rem; max-width: 560px;">
+            Laboratório SOC completo com Wazuh SIEM/XDR, Suricata IDS/NDR, Sysmon no Windows e Active Response. Integrado a uma interface web com IA (OpenAI) para análise de alertas, correlação de eventos, mapeamento MITRE ATT&CK, geração de relatórios SOC e playbooks de resposta a incidentes. Histórico persistente em SQLite com identificação do analista logado.
+          </div>
+          <div class="featured-tags">
+            <span class="featured-tag">Wazuh</span>
+            <span class="featured-tag">Suricata</span>
+            <span class="featured-tag">Sysmon</span>
+            <span class="featured-tag">Python / Flask</span>
+            <span class="featured-tag">OpenAI API</span>
+            <span class="featured-tag">MITRE ATT&CK</span>
+            <span class="featured-tag">SQLite</span>
+            <span class="featured-tag">Active Response</span>
+            <span class="featured-tag">FIM</span>
+          </div>
+        </div>
+        <div class="featured-links">
+          <a href="https://github.com/brunoneemias/wazuh-ai-soc-lab" target="_blank" class="featured-link">Ver repositório</a>
+          <a href="https://github.com/brunoneemias/wazuh-ai-soc-lab#readme" target="_blank" class="featured-link">README</a>
+        </div>
+      </div>
+    </div>
+
+    <a href="https://github.com/brunoneemias/cybersecurity-labs" target="_blank" class="project-card fade-in">
+      <div class="project-icon">🧪</div>
+      <div class="project-name">cybersecurity-labs</div>
+      <div class="project-desc">Laboratórios práticos cobrindo segurança ofensiva e defensiva, criptografia, análise de tráfego e resposta a incidentes em ambiente virtualizado.</div>
+      <div class="exp-tags" style="margin-bottom: 1.2rem;">
+        <span class="tag">Kali Linux</span>
+        <span class="tag">Nmap</span>
+        <span class="tag">Wireshark</span>
+        <span class="tag">Burp Suite</span>
+      </div>
       <div class="project-link">Ver no GitHub</div>
     </a>
-    <a href="https://github.com/brunoneemias" target="_blank" class="project-card fade-in">
+
+    <a href="https://github.com/brunoneemias/security-projects-" target="_blank" class="project-card fade-in">
       <div class="project-icon">🔍</div>
-      <div class="project-name">Wazuh SIEM — Homelab</div>
-      <div class="project-desc">Configuração e administração de ambiente SIEM com Wazuh para monitoramento de eventos, correlação de alertas e detecção de ameaças em rede local.</div>
+      <div class="project-name">security-projects</div>
+      <div class="project-desc">Projetos e laboratórios práticos de segurança ofensiva e defensiva, com documentação técnica e scripts de automação.</div>
+      <div class="exp-tags" style="margin-bottom: 1.2rem;">
+        <span class="tag">Python</span>
+        <span class="tag">Bash</span>
+        <span class="tag">Kali Linux</span>
+      </div>
       <div class="project-link">Ver no GitHub</div>
     </a>
-    <a href="https://github.com/brunoneemias" target="_blank" class="project-card fade-in">
-      <div class="project-icon">🖥️</div>
-      <div class="project-name">Active Directory — Windows Server 2022</div>
-      <div class="project-desc">Laboratório com implantação e administração de Active Directory em Windows Server 2022. Gestão de usuários, GPOs, políticas de segurança e hardening.</div>
+
+    <a href="https://github.com/brunoneemias/smart-home-automation" target="_blank" class="project-card fade-in">
+      <div class="project-icon">🏠</div>
+      <div class="project-name">hom&lt;on&gt; – Smart Home Automation</div>
+      <div class="project-desc">Sistema de automação residencial com app Android em Delphi FireMonkey, comunicação Bluetooth com Arduino e controle de iluminação por sensores LDR.</div>
+      <div class="exp-tags" style="margin-bottom: 1.2rem;">
+        <span class="tag">Delphi</span>
+        <span class="tag">Arduino</span>
+        <span class="tag">C++</span>
+        <span class="tag">IoT</span>
+      </div>
       <div class="project-link">Ver no GitHub</div>
     </a>
-    <a href="https://github.com/brunoneemias" target="_blank" class="project-card fade-in">
-      <div class="project-icon">📡</div>
-      <div class="project-name">Análise de Redes</div>
-      <div class="project-desc">Capturas e análise de tráfego de rede com foco em identificação de padrões suspeitos. Scripts Python para automação de análise de logs e dados de eventos.</div>
+
+    <a href="https://github.com/brunoneemias/sistema-biblioteca-php" target="_blank" class="project-card fade-in">
+      <div class="project-icon">📚</div>
+      <div class="project-name">sistema-biblioteca-php</div>
+      <div class="project-desc">Sistema web de cadastro e empréstimo de livros em PHP com persistência em banco de dados MySQL.</div>
+      <div class="exp-tags" style="margin-bottom: 1.2rem;">
+        <span class="tag">PHP</span>
+        <span class="tag">MySQL</span>
+        <span class="tag">HTML5</span>
+        <span class="tag">CSS3</span>
+      </div>
       <div class="project-link">Ver no GitHub</div>
     </a>
+
   </div>
 </section>
 
@@ -797,40 +742,47 @@
   </div>
   <div class="skills-grid">
     <div class="skill-group fade-in">
-      <div class="skill-group-title">Segurança & SOC</div>
+      <div class="skill-group-title">SIEM / SOC / Blue Team</div>
+      <div class="skill-items">
+        <div class="skill-item">Wazuh SIEM / XDR</div>
+        <div class="skill-item">Suricata IDS / NDR</div>
+        <div class="skill-item">Sysmon (Windows Endpoint)</div>
+        <div class="skill-item">MITRE ATT&CK</div>
+        <div class="skill-item">FIM &amp; Active Response</div>
+        <div class="skill-item">Análise de Logs &amp; Alertas</div>
+        <div class="skill-item">OpenAI API (IA para SOC)</div>
+      </div>
+    </div>
+    <div class="skill-group fade-in">
+      <div class="skill-group-title">Segurança &amp; Redes</div>
       <div class="skill-items">
         <div class="skill-item">Fundamentos de Cibersegurança</div>
-        <div class="skill-item">Wazuh SIEM</div>
+        <div class="skill-item">Redes TCP/IP</div>
         <div class="skill-item">Kali Linux</div>
-        <div class="skill-item">Análise de Logs & Eventos</div>
+        <div class="skill-item">Wireshark</div>
+        <div class="skill-item">Nmap</div>
+        <div class="skill-item">Burp Suite</div>
         <div class="skill-item">Active Directory (WS 2022)</div>
       </div>
     </div>
     <div class="skill-group fade-in">
-      <div class="skill-group-title">Redes & Infra</div>
+      <div class="skill-group-title">Programação &amp; Dados</div>
       <div class="skill-items">
-        <div class="skill-item">Redes TCP/IP</div>
-        <div class="skill-item">Sistemas Operacionais Linux/Windows</div>
-        <div class="skill-item">Cloud Computing (AWS / Azure)</div>
-        <div class="skill-item">Sistemas Embarcados em Rede</div>
-        <div class="skill-item">Monitoramento em Tempo Real</div>
-      </div>
-    </div>
-    <div class="skill-group fade-in">
-      <div class="skill-group-title">Programação & Dados</div>
-      <div class="skill-items">
-        <div class="skill-item">Python (básico)</div>
-        <div class="skill-item">SQL (básico)</div>
+        <div class="skill-item">Python</div>
+        <div class="skill-item">Flask (Web App)</div>
+        <div class="skill-item">Bash / Shell Script</div>
+        <div class="skill-item">SQL / SQLite</div>
+        <div class="skill-item">PowerShell</div>
         <div class="skill-item">Análise de Dados</div>
-        <div class="skill-item">Extração de Dados de Registradores</div>
       </div>
     </div>
     <div class="skill-group fade-in">
-      <div class="skill-group-title">Suporte & Gestão</div>
+      <div class="skill-group-title">Suporte &amp; Infra</div>
       <div class="skill-items">
+        <div class="skill-item">Linux / Windows Server</div>
+        <div class="skill-item">Cloud Computing (AWS / Azure)</div>
         <div class="skill-item">Suporte ao Usuário / Helpdesk</div>
         <div class="skill-item">Troubleshooting Técnico</div>
-        <div class="skill-item">Manutenção de TI</div>
         <div class="skill-item">Diagnóstico em Ambientes Críticos</div>
         <div class="skill-item">Suporte Remoto</div>
       </div>
@@ -891,13 +843,14 @@
 </footer>
 
 <script>
-  // Fade in on scroll
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
+        const siblings = Array.from(entry.target.parentNode?.children || []);
+        const idx = siblings.indexOf(entry.target);
         setTimeout(() => {
           entry.target.classList.add('visible');
-        }, 80 * (Array.from(entry.target.parentNode?.children || []).indexOf(entry.target)));
+        }, 80 * idx);
         observer.unobserve(entry.target);
       }
     });
@@ -905,7 +858,6 @@
 
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-  // Smooth nav highlight
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('nav ul a');
 
