@@ -4,6 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bruno Neemias · Security Portfolio</title>
+<meta name="description" content="Bruno Neemias — Profissional de TI e Segurança da Informação. SOC, SIEM, redes e infraestrutura.">
+<meta property="og:title" content="Bruno Neemias · Security Portfolio">
+<meta property="og:description" content="Profissional de TI evoluindo para Segurança da Informação. Wazuh, SIEM, SOC, redes e infraestrutura.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://brunoneemias.github.io/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23080b10'/%3E%3Ctext x='50' y='68' font-size='60' text-anchor='middle' fill='%2300ffc8' font-family='monospace'%3E%3E_%3C/text%3E%3C/svg%3E">
 <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -147,6 +153,14 @@
     margin-bottom: 1.8rem;
     letter-spacing: 0.05em;
   }
+  .hero-title .cursor {
+    display: inline-block;
+    width: 0.55em;
+    background: var(--accent2);
+    margin-left: 0.15em;
+    animation: blink 1s steps(1) infinite;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
 
   .hero-desc {
     font-size: 1rem;
@@ -286,6 +300,19 @@
     color: var(--accent2);
     letter-spacing: 0.05em;
   }
+  .badge-current {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    color: var(--accent);
+    background: rgba(0,255,200,0.08);
+    border: 1px solid rgba(0,255,200,0.25);
+    border-radius: 3px;
+    padding: 0.15rem 0.5rem;
+    margin-left: 0.6rem;
+    letter-spacing: 0.1em;
+    vertical-align: middle;
+  }
 
   /* PROJECTS */
   #projects { background: var(--bg2); }
@@ -323,7 +350,6 @@
   }
   .project-card:hover::before { opacity: 1; }
 
-  /* Featured card — destaque para o projeto principal */
   .project-card.featured {
     border-color: rgba(0,255,200,0.25);
     background: linear-gradient(135deg, #111822 0%, #0d1a12 100%);
@@ -445,6 +471,55 @@
   }
   .skill-item::before { content: '▸'; color: var(--accent2); font-size: 0.7rem; }
 
+  /* CERTIFICATIONS */
+  #certifications { background: var(--bg); }
+
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.2rem;
+  }
+  .cert-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.4rem 1.5rem;
+    transition: all 0.2s;
+  }
+  .cert-card:hover {
+    border-color: rgba(0,168,255,0.3);
+    transform: translateY(-2px);
+  }
+  .cert-name { font-size: 0.95rem; font-weight: 700; color: var(--heading); margin-bottom: 0.3rem; }
+  .cert-issuer { font-family: var(--mono); font-size: 0.72rem; color: var(--accent2); margin-bottom: 0.7rem; letter-spacing: 0.04em; }
+  .cert-topics { font-size: 0.8rem; color: var(--muted); line-height: 1.6; }
+  .cert-card.in-progress { border-style: dashed; }
+  .cert-status {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    color: var(--accent3);
+    background: rgba(255,77,109,0.08);
+    border: 1px solid rgba(255,77,109,0.25);
+    border-radius: 3px;
+    padding: 0.1rem 0.45rem;
+    margin-left: 0.5rem;
+    letter-spacing: 0.08em;
+    vertical-align: middle;
+  }
+
+  .edu-block {
+    margin-top: 2.5rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  .edu-item .edu-degree { font-size: 1rem; font-weight: 700; color: var(--heading); margin-bottom: 0.3rem; }
+  .edu-item .edu-school { font-family: var(--mono); font-size: 0.78rem; color: var(--accent); margin-bottom: 0.2rem; }
+  .edu-item .edu-date { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); }
+
   /* CONTACT */
   #contact { background: var(--bg2); }
 
@@ -527,6 +602,10 @@
     .contact-wrapper { grid-template-columns: 1fr; gap: 2rem; }
     footer { flex-direction: column; gap: 0.5rem; text-align: center; }
   }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
 </style>
 </head>
 <body>
@@ -539,6 +618,7 @@
     <li><a href="#experience">exp</a></li>
     <li><a href="#projects">projetos</a></li>
     <li><a href="#skills">skills</a></li>
+    <li><a href="#certifications">certs</a></li>
     <li><a href="#contact">contato</a></li>
   </ul>
 </nav>
@@ -550,17 +630,18 @@
   <div class="hero-content">
     <div class="status-badge">
       <div class="status-dot"></div>
-      Disponível para estágio · 2026
+      Aberto a oportunidades em Segurança da Informação
     </div>
-    <div class="hero-tag">Segurança da Informação</div>
+    <div class="hero-tag">TI &amp; Segurança da Informação</div>
     <h1 class="hero-name">Bruno<br><span class="accent">Neemias</span></h1>
-    <div class="hero-title">$ whoami → Security Enthusiast</div>
+    <div class="hero-title">$ whoami → IT Professional / Security Enthusiast<span class="cursor">&nbsp;</span></div>
     <p class="hero-desc">
-      Estudante de Segurança da Informação com background técnico em ambientes críticos de TI. Buscando oportunidades de estágio para aplicar conhecimentos em cibersegurança, redes e sistemas.
+      Auxiliar Técnico Jr. em telecomunicações e infraestrutura de TI, cursando Tecnologia em Segurança da Informação. Aplico na prática conhecimentos de redes, SOC e SIEM enquanto evoluo para uma posição de analista de segurança.
     </p>
     <div class="hero-btns">
       <a href="#contact" class="btn btn-primary">Entrar em contato</a>
       <a href="https://github.com/brunoneemias" target="_blank" class="btn btn-outline">GitHub</a>
+      <a href="#" class="btn btn-outline" id="cv-download">Baixar CV</a>
     </div>
   </div>
 </section>
@@ -575,16 +656,20 @@
   <div class="about-grid">
     <div class="about-text fade-in">
       <p>
-        Olá! Sou Bruno Neemias, estudante de Segurança da Informação, atualmente buscando minha primeira oportunidade de estágio na área. Tenho uma trajetória técnica sólida como Eletricista de Manutenção Eletroeletrônica, onde desenvolvi habilidades práticas com sistemas microprocessados, redes e análise de dados em ambientes críticos.
+        Olá! Sou Bruno Neemias, Auxiliar Técnico Jr. na HG Telecomunicações, onde cuido de infraestrutura de PABX, redes corporativas, VoIP e suporte técnico a clientes. Antes disso, passei quase 7 anos como Eletricista de Manutenção Eletroeletrônica na MRS Logística, onde desenvolvi bases sólidas em sistemas microprocessados, redes e análise de dados em ambientes críticos.
       </p>
       <p>
-        Essa experiência me deu uma visão privilegiada sobre infraestrutura e sistemas em produção — base essencial para atuar em cibersegurança. Tenho me dedicado ao estudo de fundamentos de segurança ofensiva e defensiva, além de laboratórios práticos com ferramentas como Kali Linux, Wazuh SIEM, Suricata e ambientes de Active Directory.
+        Hoje curso Tecnologia em Segurança da Informação na FATEC e venho me dedicando a laboratórios práticos com Wazuh SIEM, Suricata, Sysmon e ambientes de Active Directory, aplicando fundamentos de detecção de ameaças e resposta a incidentes.
       </p>
       <p>
-        Meu objetivo é crescer na área de segurança da informação, contribuindo com ambientes reais e continuando a desenvolver minhas habilidades técnicas em SOC, NDR, XDR e IA aplicada à segurança.
+        Meu objetivo é migrar para uma posição de analista de segurança, unindo minha vivência prática em infraestrutura de TI com o que venho estudando em SOC, threat detection e IA aplicada à segurança.
       </p>
     </div>
     <div class="about-info fade-in">
+      <div class="info-row">
+        <span class="info-label">cargo</span>
+        <span class="info-val">Auxiliar Técnico Jr. — HG Telecomunicações</span>
+      </div>
       <div class="info-row">
         <span class="info-label">cidade</span>
         <span class="info-val">Várzea Paulista, SP — Brasil</span>
@@ -603,7 +688,7 @@
       </div>
       <div class="info-row">
         <span class="info-label">status</span>
-        <span class="info-val" style="color: var(--accent)">● Aberto a oportunidades</span>
+        <span class="info-val" style="color: var(--accent)">● Aberto a oportunidades em segurança</span>
       </div>
     </div>
   </div>
@@ -617,6 +702,26 @@
     <div class="section-line"></div>
   </div>
   <div class="exp-list">
+    <div class="exp-item fade-in">
+      <div class="exp-date">
+        Abr/2026 — Presente<br>
+        <span style="color: var(--accent); font-size: 0.68rem;">Atual</span>
+      </div>
+      <div class="exp-content">
+        <div class="exp-company">HG Telecomunicações <span class="badge-current">ATUAL</span></div>
+        <div class="exp-role">Auxiliar Técnico Jr.</div>
+        <div class="exp-desc">
+          Instalação e configuração de infraestrutura de telecomunicações corporativas: PABX, switches gerenciáveis, roteadores e sistemas VoIP (analógico, digital e SIP/IP). Suporte técnico remoto e presencial a clientes corporativos, manutenção física e lógica de redes, documentação técnica e administração de ambientes cloud integrados à infraestrutura de comunicação.
+        </div>
+        <div class="exp-tags">
+          <span class="tag">PABX / VoIP</span>
+          <span class="tag">TCP/IP</span>
+          <span class="tag">Active Directory</span>
+          <span class="tag">Cloud</span>
+          <span class="tag">Suporte Técnico</span>
+        </div>
+      </div>
+    </div>
     <div class="exp-item fade-in">
       <div class="exp-date">
         Set/2018 — Nov/2025<br>
@@ -790,10 +895,74 @@
   </div>
 </section>
 
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="section-header fade-in">
+    <span class="section-num">05.</span>
+    <h2 class="section-title">Certificações</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="cert-grid">
+    <div class="cert-card fade-in">
+      <div class="cert-name">CCNA: Introduction to Networks</div>
+      <div class="cert-issuer">Cisco</div>
+      <div class="cert-topics">TCP/IP · Networking · Switching · Subnetting</div>
+    </div>
+    <div class="cert-card fade-in">
+      <div class="cert-name">Cyberops Essentials</div>
+      <div class="cert-issuer">Centro Paula Souza</div>
+      <div class="cert-topics">Log Analysis · SOC Operations · SIEM · Incident Response</div>
+    </div>
+    <div class="cert-card fade-in">
+      <div class="cert-name">Cyber Threat Management</div>
+      <div class="cert-issuer">Cisco</div>
+      <div class="cert-topics">Threat Intelligence · Risk Analysis</div>
+    </div>
+    <div class="cert-card fade-in">
+      <div class="cert-name">Hackers do Bem — Blue Team</div>
+      <div class="cert-issuer">Blue Team</div>
+      <div class="cert-topics">Cybersecurity · Vulnerability Management · Cryptography</div>
+    </div>
+    <div class="cert-card fade-in">
+      <div class="cert-name">Defesa Cibernética</div>
+      <div class="cert-issuer">Centro Paula Souza</div>
+      <div class="cert-topics">Network Security · Threat Detection · DHCP</div>
+    </div>
+    <div class="cert-card fade-in">
+      <div class="cert-name">AWS Cloud Foundations</div>
+      <div class="cert-issuer">AWS</div>
+      <div class="cert-topics">Cloud Computing · EC2 · S3</div>
+    </div>
+    <div class="cert-card fade-in">
+      <div class="cert-name">Microsoft Azure Fundamentals — AZ-900</div>
+      <div class="cert-issuer">Microsoft</div>
+      <div class="cert-topics">Azure Cloud · IAM · Virtual Machines · Cloud Security</div>
+    </div>
+    <div class="cert-card in-progress fade-in">
+      <div class="cert-name">CompTIA Security+<span class="cert-status">EM PREPARAÇÃO</span></div>
+      <div class="cert-issuer">CompTIA</div>
+      <div class="cert-topics">Risk Management · Compliance · Network Security</div>
+    </div>
+  </div>
+
+  <div class="edu-block">
+    <div class="edu-item fade-in">
+      <div class="edu-degree">Tecnólogo em Segurança da Informação</div>
+      <div class="edu-school">FATEC — São Paulo</div>
+      <div class="edu-date">Em andamento · Conclusão prevista: Dez/2026</div>
+    </div>
+    <div class="edu-item fade-in">
+      <div class="edu-degree">Técnico em Desenvolvimento de Sistemas</div>
+      <div class="edu-school">Etec Vasco Antônio Venchiarutti</div>
+      <div class="edu-date">Concluído · Dez/2021</div>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section id="contact">
   <div class="section-header fade-in">
-    <span class="section-num">05.</span>
+    <span class="section-num">06.</span>
     <h2 class="section-title">Contato</h2>
     <div class="section-line"></div>
   </div>
@@ -803,7 +972,7 @@
         Vamos <span>conversar</span> sobre oportunidades?
       </div>
       <p class="contact-sub">
-        Estou em busca de estágio na área de segurança da informação. Se você tiver uma oportunidade ou quiser trocar uma ideia, fique à vontade para entrar em contato!
+        Estou em busca de oportunidades na área de segurança da informação. Se você tiver uma vaga ou quiser trocar uma ideia, fique à vontade para entrar em contato!
       </p>
       <a href="mailto:brunoneemiasalves@gmail.com" class="btn btn-primary">brunoneemiasalves@gmail.com</a>
     </div>
@@ -869,6 +1038,12 @@
     navLinks.forEach(a => {
       a.style.color = a.getAttribute('href') === `#${current}` ? 'var(--accent)' : '';
     });
+  });
+
+  // CV download placeholder — point this to your resume file in the repo
+  document.getElementById('cv-download').addEventListener('click', function(e) {
+    e.preventDefault();
+    alert('Suba seu currículo (ex: cv-bruno-neemias.pdf) no repositório e troque o href deste botão pelo caminho do arquivo.');
   });
 </script>
 </body>
