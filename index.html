@@ -535,7 +535,9 @@
     box-shadow: 0 0 12px rgba(0,255,200,0.15);
   }
 
-  .project-icon { font-size: 1.8rem; margin-bottom: 1rem; }
+  .project-icon { margin-bottom: 1rem; color: var(--accent2); }
+  .project-icon svg { width: 30px; height: 30px; display: block; }
+  .project-card.featured .project-icon svg { width: 34px; height: 34px; color: var(--accent); }
   .project-name { font-size: 1.05rem; font-weight: 700; color: var(--heading); margin-bottom: 0.6rem; }
   .project-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.65; margin-bottom: 1.2rem; }
   .project-link {
@@ -632,6 +634,19 @@
   .edu-item .edu-school { font-family: var(--mono); font-size: 0.78rem; color: var(--accent); margin-bottom: 0.2rem; }
   .edu-item .edu-date { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); }
 
+  /* WRITING (empty state) */
+  #writing { background: var(--bg2); }
+  .writing-empty {
+    border: 1px dashed var(--border);
+    border-radius: 8px;
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+  .writing-empty-icon { color: var(--muted); margin-bottom: 1rem; }
+  .writing-empty-icon svg { width: 32px; height: 32px; margin: 0 auto; display: block; }
+  .writing-empty p { color: var(--muted); font-size: 0.9rem; max-width: 420px; margin: 0 auto; line-height: 1.6; }
+  .writing-empty p.wt-title { color: var(--text); font-family: var(--mono); font-size: 0.85rem; margin-bottom: 0.6rem; }
+
   /* CONTACT */
   #contact { background: var(--bg2); }
 
@@ -685,6 +700,19 @@
   }
   .footer-copy { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); }
   .footer-copy span { color: var(--accent); }
+  .footer-social { display: flex; gap: 1rem; align-items: center; }
+  .footer-social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    transition: all 0.2s;
+  }
+  .footer-social a svg { width: 16px; height: 16px; }
+  .footer-social a:hover { color: var(--accent); border-color: var(--accent); }
 
   /* FADE IN */
   .fade-in {
@@ -731,6 +759,7 @@
     <li><a href="#projects">projetos</a></li>
     <li><a href="#skills">skills</a></li>
     <li><a href="#certifications">certs</a></li>
+    <li><a href="#writing">writing</a></li>
     <li><a href="#contact">contato</a></li>
   </ul>
 </nav>
@@ -872,7 +901,7 @@
       <div class="featured-inner">
         <div>
           <div class="featured-badge">★ Projeto destaque</div>
-          <div class="project-icon">🛡️</div>
+          <div class="project-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/><path d="M9.5 12l1.8 1.8L14.8 10"/></svg></div>
           <div class="project-name" style="font-size: 1.25rem;">Wazuh AI SOC Lab</div>
           <div class="project-desc" style="font-size: 0.9rem; max-width: 560px;">
             Laboratório SOC completo com Wazuh SIEM/XDR, Suricata IDS/NDR, Sysmon no Windows e Active Response. Integrado a uma interface web com IA (OpenAI) para análise de alertas, correlação de eventos, mapeamento MITRE ATT&CK, geração de relatórios SOC e playbooks de resposta a incidentes. Histórico persistente em SQLite com identificação do analista logado.
@@ -904,7 +933,7 @@
     </div>
 
     <a href="https://github.com/brunoneemias/cybersecurity-labs" target="_blank" class="project-card fade-in">
-      <div class="project-icon">🧪</div>
+      <div class="project-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6"/><path d="M10 3v6.5L4.8 18a1.8 1.8 0 001.6 2.6h11.2a1.8 1.8 0 001.6-2.6L14 9.5V3"/><path d="M7.5 15h9"/></svg></div>
       <div class="project-name">cybersecurity-labs</div>
       <div class="project-desc">Laboratórios práticos cobrindo segurança ofensiva e defensiva, criptografia, análise de tráfego e resposta a incidentes em ambiente virtualizado.</div>
       <div class="exp-tags" style="margin-bottom: 1.2rem;">
@@ -917,7 +946,7 @@
     </a>
 
     <a href="https://github.com/brunoneemias/security-projects-" target="_blank" class="project-card fade-in">
-      <div class="project-icon">🔍</div>
+      <div class="project-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M20 20l-4.8-4.8"/></svg></div>
       <div class="project-name">security-projects</div>
       <div class="project-desc">Projetos e laboratórios práticos de segurança ofensiva e defensiva, com documentação técnica e scripts de automação.</div>
       <div class="exp-tags" style="margin-bottom: 1.2rem;">
@@ -929,7 +958,7 @@
     </a>
 
     <a href="https://github.com/brunoneemias/smart-home-automation" target="_blank" class="project-card fade-in">
-      <div class="project-icon">🏠</div>
+      <div class="project-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-6h4v6"/></svg></div>
       <div class="project-name">hom&lt;on&gt; – Smart Home Automation</div>
       <div class="project-desc">Sistema de automação residencial com app Android em Delphi FireMonkey, comunicação Bluetooth com Arduino e controle de iluminação por sensores LDR.</div>
       <div class="exp-tags" style="margin-bottom: 1.2rem;">
@@ -942,7 +971,7 @@
     </a>
 
     <a href="https://github.com/brunoneemias/sistema-biblioteca-php" target="_blank" class="project-card fade-in">
-      <div class="project-icon">📚</div>
+      <div class="project-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5C4 4.7 4.7 4 5.5 4H11v16H5.5A1.5 1.5 0 014 18.5v-13z"/><path d="M20 5.5c0-.8-.7-1.5-1.5-1.5H13v16h5.5a1.5 1.5 0 001.5-1.5v-13z"/></svg></div>
       <div class="project-name">sistema-biblioteca-php</div>
       <div class="project-desc">Sistema web de cadastro e empréstimo de livros em PHP com persistência em banco de dados MySQL.</div>
       <div class="exp-tags" style="margin-bottom: 1.2rem;">
@@ -1078,10 +1107,26 @@
   </div>
 </section>
 
+<!-- WRITING -->
+<section id="writing">
+  <div class="section-header fade-in">
+    <span class="section-num">06.</span>
+    <h2 class="section-title">Writing</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="writing-empty fade-in">
+    <div class="writing-empty-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 3H20v18H6.5A2.5 2.5 0 014 18.5v-13A2.5 2.5 0 016.5 3z"/><path d="M9 7.5h7M9 11h7"/></svg>
+    </div>
+    <p class="wt-title">$ ls ./writing</p>
+    <p>Ainda sem artigos publicados. Em breve, write-ups técnicos sobre os laboratórios de SOC, SIEM e detecção de ameaças que venho construindo.</p>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section id="contact">
   <div class="section-header fade-in">
-    <span class="section-num">06.</span>
+    <span class="section-num">07.</span>
     <h2 class="section-title">Contato</h2>
     <div class="section-line"></div>
   </div>
@@ -1141,6 +1186,14 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-copy">© 2026 <span>Bruno Neemias</span> · Todos os direitos reservados</div>
+  <div class="footer-social">
+    <a href="https://www.linkedin.com/in/brunoneemias/" target="_blank" aria-label="LinkedIn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 8.5v9M6.5 5.2v.1"/><path d="M11 17.5v-5.2c0-1.8 1.2-3 2.8-3 1.6 0 2.7 1.1 2.7 3v5.2"/><path d="M11 12.3v5.2"/></svg>
+    </a>
+    <a href="https://github.com/brunoneemias" target="_blank" aria-label="GitHub">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 00-2.85 17.54c.45.08.6-.2.6-.43v-1.7c-2.5.55-3.03-1.07-3.03-1.07-.41-1.03-1-1.31-1-1.31-.82-.56.06-.55.06-.55.9.06 1.38.93 1.38.93.8 1.38 2.1.98 2.62.75.08-.58.32-.98.57-1.2-2-.23-4.1-1-4.1-4.45 0-.98.35-1.79.92-2.42-.09-.23-.4-1.15.09-2.4 0 0 .76-.24 2.5.92a8.6 8.6 0 014.55 0c1.73-1.16 2.49-.92 2.49-.92.5 1.25.18 2.17.09 2.4.58.63.92 1.44.92 2.42 0 3.46-2.1 4.22-4.11 4.44.33.28.62.85.62 1.71v2.53c0 .24.15.51.61.43A9 9 0 0012 3z"/></svg>
+    </a>
+  </div>
   <div class="footer-copy" style="font-size: 0.68rem;">Feito com ♥ e muito <span>./terminal</span></div>
 </footer>
 
