@@ -782,7 +782,7 @@
     <div class="hero-btns">
       <a href="#contact" class="btn btn-primary">Entrar em contato</a>
       <a href="https://github.com/brunoneemias" target="_blank" class="btn btn-outline">GitHub</a>
-      <a href="#" class="btn btn-outline" id="cv-download">Baixar CV</a>
+      <a href="curriculo/CV_BRUNONEEMIAS.pdf" download class="btn btn-outline">Baixar CV</a>
     </div>
   </div>
 </section>
@@ -1224,12 +1224,6 @@
     navLinks.forEach(a => {
       a.style.color = a.getAttribute('href') === `#${current}` ? 'var(--accent)' : '';
     });
-  });
-
-  // CV download placeholder — point this to your resume file in the repo
-  document.getElementById('cv-download').addEventListener('click', function(e) {
-    e.preventDefault();
-    alert('Suba seu currículo (ex: cv-bruno-neemias.pdf) no repositório e troque o href deste botão pelo caminho do arquivo.');
   });
 
   // ---- Lightbox gallery: Wazuh AI SOC Lab screenshots ----
