@@ -403,6 +403,118 @@
     min-width: 160px;
   }
 
+  /* GALLERY STRIP */
+  .gallery-strip {
+    display: flex;
+    gap: 0.7rem;
+    margin-top: 1.4rem;
+    overflow-x: auto;
+    padding-bottom: 0.3rem;
+  }
+  .gallery-thumb {
+    flex: 0 0 auto;
+    width: 130px;
+    height: 82px;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    position: relative;
+    background: var(--bg);
+  }
+  .gallery-thumb img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+    transition: transform 0.25s;
+  }
+  .gallery-thumb:hover img { transform: scale(1.06); }
+  .gallery-thumb:hover { border-color: var(--accent); }
+  .gallery-more {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--accent);
+    background: rgba(0,255,200,0.08);
+  }
+
+  /* LIGHTBOX */
+  #lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(5,7,10,0.94);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 4vh 4vw;
+  }
+  #lightbox.open { display: flex; }
+  .lightbox-inner {
+    max-width: 1100px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+  }
+  .lightbox-inner img {
+    max-width: 100%;
+    max-height: 76vh;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+  }
+  .lightbox-caption {
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    color: var(--text);
+    text-align: center;
+  }
+  .lightbox-counter {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--muted);
+  }
+  .lightbox-controls {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    pointer-events: none;
+    padding: 0 1.5rem;
+  }
+  .lb-nav {
+    pointer-events: all;
+    background: rgba(17,24,34,0.8);
+    border: 1px solid var(--border);
+    color: var(--accent);
+    font-family: var(--mono);
+    font-size: 1.2rem;
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  .lb-nav:hover { border-color: var(--accent); }
+  .lb-close {
+    position: absolute;
+    top: -3.2rem;
+    right: 0;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family: var(--mono);
+    font-size: 0.9rem;
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  .lb-close:hover { border-color: var(--accent3); color: var(--accent3); }
+
   .featured-link {
     font-family: var(--mono);
     font-size: 0.72rem;
@@ -776,6 +888,13 @@
             <span class="featured-tag">Active Response</span>
             <span class="featured-tag">FIM</span>
           </div>
+          <div class="gallery-strip">
+            <div class="gallery-thumb" onclick="openLightbox(0)"><img src="screenshots/login.jpg" alt="Tela de login"></div>
+            <div class="gallery-thumb" onclick="openLightbox(1)"><img src="screenshots/sobre-projeto.jpg" alt="Sobre o projeto"></div>
+            <div class="gallery-thumb" onclick="openLightbox(3)"><img src="screenshots/dashboard-sysmon.jpg" alt="Dashboard Sysmon"></div>
+            <div class="gallery-thumb" onclick="openLightbox(5)"><img src="screenshots/dashboard-ndr.jpg" alt="Dashboard NDR"></div>
+            <div class="gallery-thumb gallery-more" onclick="openLightbox(0)">+8 fotos</div>
+          </div>
         </div>
         <div class="featured-links">
           <a href="https://github.com/brunoneemias/wazuh-ai-soc-lab" target="_blank" class="featured-link">Ver repositório</a>
@@ -1005,6 +1124,20 @@
   </div>
 </section>
 
+<!-- LIGHTBOX -->
+<div id="lightbox">
+  <div class="lightbox-controls">
+    <button class="lb-nav" onclick="navLightbox(-1)" aria-label="Anterior">‹</button>
+    <button class="lb-nav" onclick="navLightbox(1)" aria-label="Próxima">›</button>
+  </div>
+  <div class="lightbox-inner">
+    <button class="lb-close" onclick="closeLightbox()" aria-label="Fechar">✕</button>
+    <img id="lightbox-img" src="" alt="">
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+    <div class="lightbox-counter" id="lightbox-counter"></div>
+  </div>
+</div>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-copy">© 2026 <span>Bruno Neemias</span> · Todos os direitos reservados</div>
@@ -1045,6 +1178,51 @@
     e.preventDefault();
     alert('Suba seu currículo (ex: cv-bruno-neemias.pdf) no repositório e troque o href deste botão pelo caminho do arquivo.');
   });
+
+  // ---- Lightbox gallery: Wazuh AI SOC Lab screenshots ----
+  const galleryImages = [
+    { src: 'screenshots/login.jpg', caption: 'Tela de login — acesso restrito ao console' },
+    { src: 'screenshots/sobre-projeto.jpg', caption: 'Sobre o projeto — visão geral SIEM/XDR, NDR/IDS, endpoint e IA' },
+    { src: 'screenshots/sla.jpg', caption: 'SLA simulado — tempo de detecção (TTD) e resposta (TTR) por cliente' },
+    { src: 'screenshots/dashboard-sysmon.jpg', caption: 'Dashboard Windows Endpoint / Sysmon — telemetria, processos e regras acionadas' },
+    { src: 'screenshots/dashboard-inventario.jpg', caption: 'Dashboard de Inventário de Ativos — pacotes, portas e processos por agente' },
+    { src: 'screenshots/dashboard-ndr.jpg', caption: 'Dashboard NDR — alertas Suricata, assinaturas IDS e distribuição por protocolo' },
+    { src: 'screenshots/clientes.jpg', caption: 'Clientes monitorados — visão multi-tenant simulada' },
+    { src: 'screenshots/historico.jpg', caption: 'Histórico SOC — registro persistente das consultas ao AI SOC Assistant' },
+  ];
+  let lbIndex = 0;
+
+  function renderLightbox() {
+    const item = galleryImages[lbIndex];
+    document.getElementById('lightbox-img').src = item.src;
+    document.getElementById('lightbox-img').alt = item.caption;
+    document.getElementById('lightbox-caption').textContent = item.caption;
+    document.getElementById('lightbox-counter').textContent = (lbIndex + 1) + ' / ' + galleryImages.length;
+  }
+  function openLightbox(i) {
+    lbIndex = i;
+    renderLightbox();
+    document.getElementById('lightbox').classList.add('open');
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+  }
+  function navLightbox(dir) {
+    lbIndex = (lbIndex + dir + galleryImages.length) % galleryImages.length;
+    renderLightbox();
+  }
+  document.getElementById('lightbox').addEventListener('click', function(e) {
+    if (e.target.id === 'lightbox') closeLightbox();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (!document.getElementById('lightbox').classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') navLightbox(-1);
+    if (e.key === 'ArrowRight') navLightbox(1);
+  });
 </script>
+
+<!-- Analytics: GoatCounter (privacy-friendly, no cookies) -->
+<script data-goatcounter="https://whitebeard14.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
